@@ -25,6 +25,7 @@ function NewProject() {
         .then((data) => {
             console.log(data)
             // redirect
+            history.push()
         })
         .catch((err) => console.log(err))
     }
