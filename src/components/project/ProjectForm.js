@@ -28,7 +28,6 @@ function ProjectForm({ handleSubmit, btnText, projectData }) {
     const submit = (e) => {
         e.preventDefault()
         //console.log(project)
-        // TESTANDO AS 14:07 HS DO DIA 18/01/2023
         handleSubmit(project)
     }
 
