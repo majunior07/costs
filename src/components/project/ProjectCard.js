@@ -18,7 +18,7 @@ function ProjectCard({id, name, budget, category, handleRemove}) {
                     <BsPencil />Editar
                 </Link>
                 <button>
-                    <BsFillTrashFill />
+                    <BsFillTrashFill />Excluir
                 </button>
             </div>
         </div>
@@ -26,3 +26,7 @@ function ProjectCard({id, name, budget, category, handleRemove}) {
 }
 
 export default ProjectCard
+
+
+
+
