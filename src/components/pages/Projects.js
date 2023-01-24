@@ -22,7 +22,8 @@ function Projects() {
     }
 
     useEffect(() => {
-        fetch('http://localhost:5000/projects', {
+        setTimeout(() => {
+            fetch('http://localhost:5000/projects', {
             method: 'GET',
             headers: {
                 'Content-type': 'application/json',
@@ -35,6 +36,7 @@ function Projects() {
             setRemoveLoading(true)
         })
         .catch((err) => console.log(err))
+        }, 300)
     }, [])
 
     return(
@@ -56,6 +58,9 @@ function Projects() {
                       />
                     ))}
                     {!removeLoading && <Loading />}
+                    {removeLoading && projects.length === 0 && (
+                        <p>Não há projetos cadastrados! </p>
+                    )}
             </Container>
         </div>
     )
