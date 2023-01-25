@@ -1,28 +1,6 @@
 {
   "projects": [
     {
-      "name": "projeto teste",
-      "budget": "5000",
-      "category": {
-        "id": "2",
-        "name": "Desenvolvimento"
-      },
-      "cost": 0,
-      "services": [],
-      "id": 1
-    },
-    {
-      "name": "meu projeto",
-      "budget": "5000",
-      "category": {
-        "id": "3",
-        "name": "Desenvolvimento"
-      },
-      "cost": 0,
-      "services": [],
-      "id": 2
-    },
-    {
       "name": "meu projeto 3",
       "budget": "15000",
       "category": {
@@ -64,6 +42,3 @@
     }
   ]
 }
-
-
-
