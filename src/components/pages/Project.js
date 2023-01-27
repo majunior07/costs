@@ -12,6 +12,8 @@ function Project() {
     
     const [project, setProject] = useState([])
 
+    const [showProjectForm, setShowProjectForm] = useState(false)
+
     useEffect(() => {   
         setTimeout(() => {
             fetch(`http://localhost:5000/projects/${id}`, {
@@ -28,15 +30,38 @@ function Project() {
         }, 300)
     }, [id])
 
+    function toggleProjectForm(){
+        setShowProjectForm(!showProjectForm)
+    }
+
     return (
         <>
             {project.name ? ( 
-                <div>
+                <div className={styles.project_details}>
                     <Container customClass="column">
                         <div>
                             <h1>Projeto: {project.name}</h1>
-                            <button>Editar</button>
-                        </div>
+                            <button onClick={toggleProjectForm}>
+                                {!showProjectForm ? 'Editar projeto' : 'Fechar'}
+                            </button>
+                            {!showProjectForm ? (
+                                <div>
+                                    <p>
+                                        <span>Categoria:</span>{project.category.name}
+                                    </p>
+                                    <p>
+                                        <span>Total de Orçamento:</span> R${project.budget}
+                                    </p>
+                                    <p>
+                                        <span>Total Utilizado:</span> R${project.cost}
+                                    </p>
+                                </div>
+                            ) : (
+                                <div>
+                                    <p>detalhes do projeto</p>
+                                </div>
+                            )}
+                        </div> 
                     </Container>
                 </div>
             ) : (
