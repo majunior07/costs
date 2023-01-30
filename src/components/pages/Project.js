@@ -34,6 +34,8 @@ function Project() {
     }, [id])
 
     function editPost(project) {
+        setMessage('')
+
         // budget validation
         if(project.budget < project.cost) {
             setMessage('O orçamento não pode ser menor que o custo do projeto!')
@@ -95,6 +97,12 @@ function Project() {
                                 </div>
                             )}
                         </div> 
+                        <div className={styles.service_form_container}>
+                            <h2>Adicione um serviço:</h2>
+                            <button className={styles.btn} onClick={toggleProjectForm}>
+                                {!showProjectForm ? ''}
+                            </button>
+                        </div>
                     </Container>
                 </div>
             ) : (
