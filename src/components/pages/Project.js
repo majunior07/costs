@@ -77,6 +77,29 @@ function Project() {
         const newCost = parseFloat(project.cost) + parseFloat(lastServiceCost)
         
         // maximum value validation
+        if(newCost > parseFloat(project.budget)) {
+            setMessage('Orçamento ultrapassado, verifique o valor do serviço!')
+            setType('error')
+            project.services.pop()
+            return false
+        }
+
+        // add service cost to project total cost
+        project.cost = newCost 
+
+        // update project
+        fetch(`http://localhost:5000/projects/${project.id}`, {
+            method: 'PATCH',
+            headers: {  
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(project),
+        })
+        .then((resp) => resp.json())
+        .then((data) => {
+            // exibir os serviços
+        })
+        .catch((err) => console.log(err))
     }
 
     function toggleProjectForm(){
