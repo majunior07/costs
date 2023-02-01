@@ -1,3 +1,5 @@
+import { parse, v4 as uuidv4 } from 'uuid'
+
 import styles from './Project.module.css'
 
 import {useParams} from 'react-router-dom'
@@ -64,6 +66,19 @@ function Project() {
         .catch((err) => console.log(err))
     }
 
+    function createService(project) {
+        // last service
+        const lastService = project.services[project.services.length - 1]
+
+        lastService.id = uuidv4()
+
+        const lastServiceCost = lastService.cost
+
+        const newCost = parseFloat(project.cost) + parseFloat(lastServiceCost)
+        
+        // maximum value validation
+    }
+
     function toggleProjectForm(){
         setShowProjectForm(!showProjectForm)
     }
@@ -111,9 +126,11 @@ function Project() {
                                 {!showServiceForm ? 'Adicionar serviço' : 'Fechar'}
                             </button>
                             <div className={styles.project_info}>
-                                {showServiceForm && (
-                                    <ServiceForm /> 
-                                )}
+                                {showServiceForm && <ServiceForm 
+                                    handleSubmit={createService}
+                                    btnText="Adicionar serviço"
+                                    projectData={project}
+                                /> }
                             </div>
                         </div>          
                         <h2>Serviços</h2>    
