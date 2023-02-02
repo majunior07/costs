@@ -67,6 +67,8 @@ function Project() {
     }
 
     function createService(project) {
+        setMessage('')
+
         // last service
         const lastService = project.services[project.services.length - 1]
 
@@ -98,6 +100,7 @@ function Project() {
         .then((resp) => resp.json())
         .then((data) => {
             // exibir os serviços
+            console.log(data)
         })
         .catch((err) => console.log(err))
     }
@@ -170,6 +173,10 @@ function Project() {
 }
 
 export default Project
+
+
+
+
 
 
 
