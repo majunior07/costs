@@ -10,6 +10,7 @@ import Container from '../layout/Container'
 import Message from '../layout/Message'
 import ProjectForm from '../project/ProjectForm'
 import ServiceForm from '../servive/ServiceForm'
+import ServiceCard from '../servive/ServiceCard'
 
 function Project() {
 
@@ -105,6 +106,10 @@ function Project() {
             console.log(data)
         })
         .catch((err) => console.log(err))
+    }
+
+    function removeService() {
+
     }
 
     function toggleProjectForm(){
